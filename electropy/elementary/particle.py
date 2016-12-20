@@ -29,10 +29,6 @@ class Particle(object):
         else:
             raise TypeError('Initializer argument must be a numpy array or list.')
 
-    def getPosition(self):
-        """Returns 1D numpy array of length 3"""
-        return self.pos
-
     # Private methods
     def __verify3D__(self, nparray):
         return nparray.shape==(3,)
