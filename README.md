@@ -1,4 +1,4 @@
-# Electrodynamics
+# electropy: A classical electrodynamics simulation toolset for Python
 
 This section was temporarily left empty.
 
