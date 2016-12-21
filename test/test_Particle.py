@@ -10,6 +10,10 @@ class ParticleTest(unittest.TestCase):
     def tearDown(self):
         pass
 
+    def test_that_particle_initialization_fails_for__non_list_or_np_array(self):
+        positionVal = 0
+        self.assertRaises(TypeError, ep.Particle, positionVal)
+
     def test_that_1D_list_position_throws_error_for_particle_initialization(self):
         position1D = [0]
         self.assertRaises(TypeError, ep.Particle, position1D)
