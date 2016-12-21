@@ -5,7 +5,7 @@ import numpy as np
 class ParticleTest(unittest.TestCase):
 
     def setUp(self):
-        self.positionList = [0,0,0]
+        self.positionList = [-1, 2.5, 0]
 
     def tearDown(self):
         pass
@@ -31,7 +31,6 @@ class ParticleTest(unittest.TestCase):
         assert(isinstance(ep.Particle(np.array(self.positionList)), ep.Particle))
 
     #  Object property initialization tests
-
     def test_that_nparr_pos_attribute_is_not_equal_to_list_after_object_creation_using_list(self):
         testObj = ep.Particle(self.positionList)
         assert(~isinstance(testObj.pos, list))
@@ -43,3 +42,16 @@ class ParticleTest(unittest.TestCase):
     def test_that_nparray_pos_input_matches_the_nparr_pos_attribute_after_object_creation(self):
         testObj = ep.Particle(np.array(self.positionList))
         np.testing.assert_allclose(testObj.pos, np.array(self.positionList))
+
+    #  Decorators
+    def test_that_x_decorator_gives_the_correct_pos_value(self):
+        testObj = ep.Particle(self.positionList)
+        self.assertEqual(testObj.x, self.positionList[0])
+
+    def test_that_y_decorator_gives_the_correct_pos_value(self):
+        testObj = ep.Particle(self.positionList)
+        self.assertEqual(testObj.y, self.positionList[1])
+
+    def test_that_z_decorator_gives_the_correct_pos_value(self):
+        testObj = ep.Particle(self.positionList)
+        self.assertEqual(testObj.z, self.positionList[2])
