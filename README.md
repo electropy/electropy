@@ -1,6 +1,6 @@
-# electropy: A classical electrodynamics simulation toolset for Python
+# electropy
 
-This section was temporarily left empty.
+electropy is a classical electrodynamics simulation toolset for Python.
 
 ## Requirements
 
