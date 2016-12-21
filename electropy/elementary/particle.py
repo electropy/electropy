@@ -29,6 +29,22 @@ class Particle(object):
         else:
             raise TypeError('Initializer argument must be a numpy array or list.')
 
+    # X-Y-Z position value decorators
+    @property
+    def x(self):
+        """'x' position value"""
+        return self.pos[0]
+
+    @property
+    def y(self):
+        """'y' position value"""
+        return self.pos[1]
+
+    @property
+    def z(self):
+        """'z' position value"""
+        return self.pos[2]
+
     # Private methods
     def __verify3D__(self, nparray):
         return nparray.shape==(3,)
