@@ -1,2 +1,1 @@
-from electropy.elementary.particle import *
-from electropy.elementary.charge import *
+__version__ = "0.1dev"

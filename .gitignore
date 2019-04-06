@@ -1,5 +1,13 @@
+# Project
+electropy\.egg-info/
+
 # MacOS
 .DS_Store
 
 # Python
 __pycache__/
+*.pyc
+
+# Python-related temp files
+.coverage
+.pytest_cache/

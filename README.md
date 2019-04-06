@@ -1,4 +1,6 @@
 # electropy
+[![Build Status](https://api.travis-ci.org/electropy/electropy.svg?branch=master)](https://travis-ci.org/electropy)
+[![Coverage Status](https://coveralls.io/repos/github/electropy/electropy/badge.svg?branch=master)](https://coveralls.io/github/electropy/electropy?branch=master)
 
 electropy is a classical electrodynamics simulation toolset for Python.
 
