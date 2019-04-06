@@ -11,3 +11,4 @@ __pycache__/
 # Python-related temp files
 .coverage
 .pytest_cache/
+
