@@ -20,7 +20,7 @@ setup(
     version=electropy.__version__,
     description="Python tool for electromagnetism simulations",
     long_description=long_description,
-    url="https://github.com/electropy/electopy",
+    url="https://github.com/electropy/electropy",
     author="Mathieu Boudreau, PhD",
     author_email="mathieu.boudreau2@mail.mcgill.ca",
     license="MIT",

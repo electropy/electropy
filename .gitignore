@@ -12,3 +12,6 @@ __pycache__/
 .coverage
 .pytest_cache/
 
+# Release-related files
+build/
+dist/
