@@ -17,7 +17,7 @@ Recommended requirement: conda or anaconda
 ## About me
 
 **Mathieu Boudreau** is a MRI physicist working as a Research Fellow for the
-Montreal Heart Institute and a software developper at NeuroPoly (Polytechnique
+Montreal Heart Institute and a software developer at NeuroPoly (Polytechnique
 de Montréal). He holds a PhD in Biomedical Engineering from McGill University
 ('19), a MSc in Physics from the University of Western Ontario ('11), and a BSc
 in Physics from the Université de Moncton ('09). In his spare time, Mathieu
