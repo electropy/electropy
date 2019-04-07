@@ -18,22 +18,28 @@ class Particle(object):
         """
 
         if isinstance(pos, np.ndarray):
-            if(self.__verify3D__(pos)):
+            if self.__verify3D__(pos):
                 self.pos = pos
             else:
-                raise TypeError('Initializer argument must be a \
-                                1D numpy array or list of length 3')
+                raise TypeError(
+                    "Initializer argument must be a \
+                                1D numpy array or list of length 3"
+                )
 
         elif isinstance(pos, list):
-            if(self.__verify3D__(np.array(pos))):
+            if self.__verify3D__(np.array(pos)):
                 self.pos = np.array(pos)
             else:
-                raise TypeError('Initializer argument must be a \
-                                1D numpy array or list of length 3')
+                raise TypeError(
+                    "Initializer argument must be a \
+                                1D numpy array or list of length 3"
+                )
 
         else:
-            raise TypeError('Initializer argument must be a numpy \
-                            array or list.')
+            raise TypeError(
+                "Initializer argument must be a numpy \
+                            array or list."
+            )
 
     # X-Y-Z position value decorators
     @property

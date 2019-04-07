@@ -1,10 +1,9 @@
 import unittest
-from electropy.elementary.particle import Particle
+from electropy.particle import Particle
 import numpy as np
 
 
 class ParticleTest(unittest.TestCase):
-
     def setUp(self):
         self.positionList = [-1, 2.5, 0]
 
@@ -26,15 +25,15 @@ class ParticleTest(unittest.TestCase):
 
     # Valid object initiation tests
     def test_that_3D_position_list_returns_an_object_of_type_Particle(self):
-        assert(isinstance(Particle(self.positionList), Particle))
+        assert isinstance(Particle(self.positionList), Particle)
 
     def test_that_3D_numpy_array_returns_an_object_of_type_Particle(self):
-        assert(isinstance(Particle(np.array(self.positionList)), Particle))
+        assert isinstance(Particle(np.array(self.positionList)), Particle)
 
     #  Object property initialization tests
     def test_pos_attribute_not_equal_list_after_init_using_list(self):
         testObj = Particle(self.positionList)
-        assert(~isinstance(testObj.pos, list))
+        assert ~isinstance(testObj.pos, list)
 
     def test_list_pos_input_matches_nparr_pos_attribute_after_init(self):
         testObj = Particle(self.positionList)
