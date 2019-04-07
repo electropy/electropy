@@ -16,29 +16,11 @@ class Particle(object):
         """
         Constructor takes 1 argument, which can be a numpy array or a list
         """
-
-        if isinstance(pos, np.ndarray):
-            if self.__verify3D__(pos):
-                self.pos = pos
-            else:
-                raise TypeError(
-                    "Initializer argument must be a \
-                                1D numpy array or list of length 3"
-                )
-
-        elif isinstance(pos, list):
-            if self.__verify3D__(np.array(pos)):
-                self.pos = np.array(pos)
-            else:
-                raise TypeError(
-                    "Initializer argument must be a \
-                                1D numpy array or list of length 3"
-                )
-
-        else:
+        self.pos = np.asarray(pos)
+        if not self.__verify3D__(self.pos):
             raise TypeError(
-                "Initializer argument must be a numpy \
-                            array or list."
+                "Initializer argument must be a \
+                            1D numpy array or list of length 3"
             )
 
     # X-Y-Z position value decorators
