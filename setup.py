@@ -22,7 +22,7 @@ setup(
     long_description=long_description,
     url="https://github.com/electropy/electopy",
     author="Mathieu Boudreau, PhD",
-    author_email="mathieu.boudreau2@mail.mcgill.ca.com",
+    author_email="mathieu.boudreau2@mail.mcgill.ca",
     license="MIT",
     classifiers=[
         "Development Status :: 3 - Alpha",
