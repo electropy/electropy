@@ -1,6 +1,7 @@
 # electropy
 [![Build Status](https://travis-ci.com/electropy/electropy.svg?branch=master)](https://travis-ci.com/electropy/electropy)
 [![Coverage Status](https://coveralls.io/repos/github/electropy/electropy/badge.svg?branch=master)](https://coveralls.io/github/electropy/electropy?branch=master)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/electropy/notebooks/master?filepath=potential%2Fdipole.ipynb)
 
 electropy is a classical electrodynamics simulation toolset for Python.
 
