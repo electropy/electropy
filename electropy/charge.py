@@ -16,7 +16,6 @@ class Charge(Particle):
 
     Methods:
         getPosition(): Returns numpy array
-
     """
 
     def __init__(self, pos, charge):
@@ -34,7 +33,7 @@ class Charge(Particle):
         """Electric charge value in Coulomb"""
         return self.charge
 
-    def field(self, fpos, type="analytical", h=0.001):
+    def field(self, fpos, type="analytical", h=0.001, component=None):
         """Electric field at a given position.
 
         Args:
@@ -42,6 +41,7 @@ class Charge(Particle):
             type: type of field calculation. 'analytical' (default) or from
                 gradient of potential.
             h: potential gradient spatial difference.
+            component: 'x', 'y', 'z', or None (default)
         """
 
         fpos = np.asarray(fpos)
@@ -84,7 +84,14 @@ class Charge(Particle):
 
             electric_field = -grad_potential
 
-        return electric_field
+        if component is None:
+            return electric_field
+        elif component == "x":
+            return electric_field[0]
+        elif component == "y":
+            return electric_field[1]
+        elif component == "z":
+            return electric_field[2]
 
     def potential(self, ppos):
         """Electric potential at a given position.
