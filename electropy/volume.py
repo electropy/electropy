@@ -38,6 +38,7 @@ def field(
     y_range=[-10, 10],
     z_range=[-10, 10],
     h=0.01,
+    type="analytical",
     component=None,
 ):
     """Calculate field in a volume
@@ -47,6 +48,8 @@ def field(
         x_range, y_range, z_range: [min, max] distances of volume.
                                     units: meters
         h: spacing between array elements. units: meters
+        type: type of field calculation. 'analytical' (default) or from
+                gradient of potential.
         component: 'x', 'y', 'z', or None (default)
 
     Return: 3D numpy array
@@ -66,24 +69,24 @@ def field(
             if field_grid[i][j][k] is None:
                 if component is None:
                     field_grid[i][j][k] = charge.field(
-                        [x[i], y[j], z[k]], type="analytical"
+                        [x[i], y[j], z[k]], type=type
                     )
             else:
                 if component is None:
                     field_grid[i][j][k] += charge.field(
-                        [x[i], y[j], z[k]], type="analytical"
+                        [x[i], y[j], z[k]], type=type
                     )
                 elif component == "x":
                     field_grid[i][j][k] += charge.field(
-                        [x[i], y[j], z[k]], type="analytical"
+                        [x[i], y[j], z[k]], type=type
                     )[0]
                 elif component == "y":
                     field_grid[i][j][k] += charge.field(
-                        [x[i], y[j], z[k]], type="analytical"
+                        [x[i], y[j], z[k]], type=type
                     )[1]
                 elif component == "z":
                     field_grid[i][j][k] += charge.field(
-                        [x[i], y[j], z[k]], type="analytical"
+                        [x[i], y[j], z[k]], type=type
                     )[2]
 
     return field_grid
