@@ -19,9 +19,9 @@ def potential(
     Return: 3D numpy array
 
     """
-    x = np.arange(x_range[0], x_range[1] + h, h)
-    y = np.arange(y_range[0], y_range[1] + h, h)
-    z = np.arange(z_range[0], z_range[1] + h, h)
+    x = _arange(x_range[0], x_range[1], h)
+    y = _arange(y_range[0], y_range[1], h)
+    z = _arange(z_range[0], z_range[1], h)
 
     potential_grid = np.zeros([x.size, y.size, z.size], dtype=float)
 
@@ -55,9 +55,9 @@ def field(
     Return: 3D numpy array
 
     """
-    x = np.arange(x_range[0], x_range[1] + h, h)
-    y = np.arange(y_range[0], y_range[1] + h, h)
-    z = np.arange(z_range[0], z_range[1] + h, h)
+    x = _arange(x_range[0], x_range[1], h)
+    y = _arange(y_range[0], y_range[1], h)
+    z = _arange(z_range[0], z_range[1], h)
 
     if component is None:
         field_grid = np.empty([x.size, y.size, z.size], dtype=object)
@@ -90,3 +90,10 @@ def field(
                     )[2]
 
     return field_grid
+
+
+def _arange(_min, _max, _step):
+    """ Alternative to numpy's arange that handles well floating point steps
+   Also happens to give "rounder" decimals than np.arange =)
+   """
+    return np.linspace(_min, _max, 1 + int(np.rint((_max - _min) / _step)))

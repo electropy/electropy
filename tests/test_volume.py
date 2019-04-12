@@ -171,3 +171,26 @@ class VolumeTest(unittest.TestCase):
         )
 
         np.testing.assert_equal(field_at_point, expected_field)
+
+    def test_field_returns_singleton_dim_for_single_slice(self):
+
+        charge = Charge(self.position_1, self.charge)
+
+        field_volume = volume.field(
+            [charge],
+            x_range=[-10, 10],
+            y_range=[1, 1],
+            z_range=[-10, 10],
+            h=0.1,
+        )
+
+        expected_shape = (201, 1, 201)
+        actual_shape = field_volume.shape
+
+        np.testing.assert_equal(actual_shape, expected_shape)
+
+    def test__arange_almost_equals_numpy_arange(self):
+
+        actual = volume._arange(-10, 10, 0.1)  # Mine is rounder anyways =)
+        expected = np.arange(-10, 10 + 0.1, 0.1)
+        np.testing.assert_almost_equal(actual, expected)
