@@ -68,7 +68,6 @@ class Charge(Particle):
             )
 
         if type == "potential":
-            h = 0.001
             potential_grid = np.empty([3, 3, 3], dtype=object)
             x = np.linspace(fpos[0] - h, fpos[0] + h, 3)
             y = np.linspace(fpos[1] - h, fpos[1] + h, 3)
