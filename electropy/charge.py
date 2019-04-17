@@ -11,21 +11,28 @@ class Charge(Particle):
     """Base class for a point electric charge
 
     Attributes:
-        pos: particle position, 1D numpy array of length 3
+        position: particle position, 1D numpy array of length 3
         charge: electric charge in Coulomb.
 
     Methods:
         getPosition(): Returns numpy array
     """
 
-    def __init__(self, pos, charge):
-        """Charge clas initializer
+    def __init__(
+        self,
+        position,
+        charge,
+        velocity=[0, 0, 0],
+        acceleration=[0, 0, 0],
+        mass=np.inf,
+    ):
+        """Charge class initializer
 
         Args:
-            pos: position. units: meters. numpy array or a list.
+            position: position. units: meters. numpy array or a list.
             charge: electric charge. units: Coulombs. float.
         """
-        Particle.__init__(self, pos)
+        Particle.__init__(self, position, velocity, acceleration, mass)
         self.charge = charge
 
     @property
@@ -51,14 +58,14 @@ class Charge(Particle):
                             1D numpy array or list of length 3"
             )
 
-        if np.array_equal(fpos, self.pos):
+        if np.array_equal(fpos, self.position):
             electric_field = fpos.astype(float)
             electric_field.fill(np.nan)
 
             return electric_field
 
         if type == "analytical":
-            displacement = fpos - self.pos
+            displacement = fpos - self.position
 
             electric_field = (
                 self.q
@@ -68,7 +75,6 @@ class Charge(Particle):
             )
 
         if type == "potential":
-            h = 0.001
             potential_grid = np.empty([3, 3, 3], dtype=object)
             x = np.linspace(fpos[0] - h, fpos[0] + h, 3)
             y = np.linspace(fpos[1] - h, fpos[1] + h, 3)
@@ -82,7 +88,7 @@ class Charge(Particle):
                 [xgrad[1, 1, 1], ygrad[1, 1, 1], zgrad[1, 1, 1]]
             )
 
-            electric_field = -grad_potential
+            electric_field = -1 * grad_potential
 
         if component is None:
             return electric_field
@@ -97,7 +103,7 @@ class Charge(Particle):
         """Electric potential at a given position.
 
         Args:
-            ppos: field position. numpy array or a list.
+            ppos: potential position. numpy array or a list.
         """
 
         ppos = np.asarray(ppos)
@@ -107,10 +113,10 @@ class Charge(Particle):
                             1D numpy array or list of length 3"
             )
 
-        if np.array_equal(ppos, self.pos):
+        if np.array_equal(ppos, self.position):
             return np.nan
 
-        displacement = ppos - self.pos
+        displacement = ppos - self.position
 
         electric_potential = (
             self.q
